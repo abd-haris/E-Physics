@@ -1,0 +1,24 @@
+{
+  "name": "e-physics",
+  "version": "1.0.0",
+  "description": "E-Physics merupakan website belajar yang menarik dan modern. Belajar fisika jadi terasa seperti main game.",
+  "license": "ISC",
+  "author": "Abdul Haris",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@iconify/json": "^2.2.341",
+    "@iconify/tailwind4": "^1.0.6",
+    "vite": "^6.3.5"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.7",
+    "daisyui": "^5.0.38",
+    "tailwindcss": "^4.1.7"
+  }
+}
