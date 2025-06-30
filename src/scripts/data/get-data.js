@@ -11,6 +11,7 @@ export const DataLearning = {
       learningData.gamification = savedData.gamification || learningData.gamification;
       console.log("gamification: ", learningData.gamification);
     } else {
+      console.log("Tidak ada data di localStorage, menyimpan data awal:", learningData);
       saveModules({ ...learningData });
     }
 
