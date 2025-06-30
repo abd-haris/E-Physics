@@ -6,6 +6,7 @@
   "author": "Abdul Haris",
   "type": "module",
   "main": "index.js",
+  "homepage": "/e-physics/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
