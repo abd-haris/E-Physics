@@ -226,7 +226,7 @@ export function generateCardLevelBeginnerDashboardTemplate(gamification) {
   return `
     <div class="card bg-white w-96 shadow-sm">
       <figure class="px-10 pt-10 flex flex-col">
-        <img src="${gamification.icon.smart}" alt="Shoes" class="rounded-xl w-28" />
+        <img src="${import.meta.env.BASE_URL}${gamification.icon.smart}" alt="Shoes" class="rounded-xl w-28" />
         <figcaption class="flex flex-col justify-center items-center font-bold">
           </p>Level ${gamification.level}</p>
           <p>${gamification.badges.smart}</p>
@@ -268,7 +268,7 @@ export function generateCardLevelExpertDashboardTemplate(gamification) {
   return `
     <div class="card bg-info w-96 shadow-sm">
       <figure class="px-10 pt-10 flex flex-col">
-        <img src="${gamification.icon.expert}" alt="Shoes" class="rounded-xl w-28" />
+        <img src="${import.meta.env.BASE_URL}${gamification.icon.expert}" alt="Shoes" class="rounded-xl w-28" />
         <figcaption class="flex flex-col justify-center items-center font-bold">
           <p>Level ${gamification.level}</p>
           <p>${gamification.badges.expert}</p>
