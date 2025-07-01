@@ -285,9 +285,9 @@ export const learningData = {
     },
     level: 1,
     icon: {
-      smart: "/images/icon-level/star-medal_1.png",
-      intelligent: "/images/icon-level/star-medal_2.png",
-      expert: "/images/icon-level/star-medal_3.png",
+      smart: "/icon-level/star-medal_1.png",
+      intelligent: "/icon-level/star-medal_2.png",
+      expert: "/icon-level/star-medal_3.png",
     },
   },
 };
