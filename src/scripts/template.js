@@ -54,7 +54,7 @@ export function generateClassListItemTemplate({ courseId, image, title, kelas })
   return `
         <div class="card bg-base-100 w-full shadow-sm lg:w-72" data-courseId="${courseId}">
             <figure>
-                <img src="${image}" alt="image-course"/>
+                <img src="${import.meta.env.BASE_URL}${image}" alt="image-course"/>
             </figure>
             <div class="card-body flex flex-col gap-y-5">
                 <h3 class="card-title text-xl font-bold">${title}</h3>
@@ -71,7 +71,7 @@ export function generateMyClassListItemTemplate({ courseId, image, title, kelas 
   return `
         <div class="card bg-base-100 w-full shadow-sm lg:w-72" data-courseId="${courseId}">
             <figure>
-                <img src="${image}" alt="image-course" class="vt-item-image"/>
+                <img src="${import.meta.env.BASE_URL}${image}" alt="image-course" class="vt-item-image"/>
             </figure>
             <div class="card-body flex flex-col gap-y-5">
                 <h3 class="card-title text-xl font-bold">${title}</h3>
@@ -135,7 +135,7 @@ export function generateDetailMyClassTemplate(courses) {
   return `
     <div class="w-[80vw] flex flex-col gap-y-5 border border-base-300 rounded-b-2xl box-border">
       <figure class="w-full h-48 overflow-y-hidden bg-center">
-        <img src="${courses.image}" alt="course image" class="vt-detail-image">
+        <img src="${import.meta.env.BASE_URL}${courses.image}" alt="course image" class="vt-detail-image">
       </figure>
       <div class="flex justify-between mx-5 mt-5">
         <h3 class="text-2xl font-bold">${courses.title}</h3>
