@@ -247,7 +247,7 @@ export function generateCardLevelIntermediateDashboardTemplate(gamification) {
   return `
     <div class="card bg-warning w-96 shadow-sm">
       <figure class="px-10 pt-10 flex flex-col">
-        <img src="${gamification.icon.intelligent}" alt="Shoes" class="rounded-xl w-28" />
+        <img src="${import.meta.env.BASE_URL}${gamification.icon.intelligent}" alt="Shoes" class="rounded-xl w-28" />
         <figcaption class="flex flex-col justify-center items-center font-bold">
         <p>Level ${gamification.level}</p>
         <p>${gamification.badges.intelligent}</p>
