@@ -197,7 +197,7 @@ var X=e=>{throw TypeError(e)};var O=(e,a,n)=>a.has(e)||X("Cannot "+n);var l=(e,a
   `}function ya({courseId:e,image:a,title:n,kelas:t,progress:i}){return`
     <div class="bg-white shadow-sm rounded-xl box-border p-5">
       <figure class="flex gap-x-3 items-center p-3">
-        <img src="${a}" class="w-24 rounded-2xl">
+        <img src="/E-Physics/${a}" class="w-24 rounded-2xl">
         <figcaption class="flex flex-col gap-y-2">
           <h3 class="text-lg font-semibold line-clamp-1">${n}</h3>
           <h4>${t}</h4>
@@ -220,7 +220,7 @@ var X=e=>{throw TypeError(e)};var O=(e,a,n)=>a.has(e)||X("Cannot "+n);var l=(e,a
   `}function va({courseId:e,image:a,title:n,kelas:t,progress:i}){return`
     <div class="bg-white shadow-sm rounded-xl box-border p-5">
       <figure class="flex gap-x-3 items-center p-3">
-        <img src="${a}" class="w-24 rounded-2xl">
+        <img src="/E-Physics/${a}" class="w-24 rounded-2xl">
         <figcaption class="flex flex-col gap-y-2">
           <h3 class="text-lg font-semibold line-clamp-1">${n}</h3>
           <h4>${t}</h4>
