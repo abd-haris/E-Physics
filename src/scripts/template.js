@@ -289,7 +289,7 @@ export function generateContinueLearningDashboardListTemplate({ courseId, image,
   return `
     <div class="bg-white shadow-sm rounded-xl box-border p-5">
       <figure class="flex gap-x-3 items-center p-3">
-        <img src="${image}" class="w-24 rounded-2xl">
+        <img src="${import.meta.env.BASE_URL}${image}" class="w-24 rounded-2xl">
         <figcaption class="flex flex-col gap-y-2">
           <h3 class="text-lg font-semibold line-clamp-1">${title}</h3>
           <h4>${kelas}</h4>
@@ -320,7 +320,7 @@ export function generateFinishedLearningDashboardListTemplate({ courseId, image,
   return `
     <div class="bg-white shadow-sm rounded-xl box-border p-5">
       <figure class="flex gap-x-3 items-center p-3">
-        <img src="${image}" class="w-24 rounded-2xl">
+        <img src="${import.meta.env.BASE_URL}${image}" class="w-24 rounded-2xl">
         <figcaption class="flex flex-col gap-y-2">
           <h3 class="text-lg font-semibold line-clamp-1">${title}</h3>
           <h4>${kelas}</h4>
