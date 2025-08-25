@@ -1,4 +1,4 @@
-import { generateAsideDetailModuleTemplate } from "../../template";
+import { generateAsideDetailModuleTemplate } from '../../template';
 
 export class Sidebar {
   #model;
@@ -15,7 +15,7 @@ export class Sidebar {
     if (!this.#cachedModules) {
       const response = await this.#model.getDetailMyCourse(this.#courseId);
       if (!response || !response.data || !response.data.modules) {
-        console.log("Data modul tidak ditemukan!");
+        console.log('Data modul tidak ditemukan!');
         return '<aside id="default-sidebar"></aside>';
       }
       this.#cachedModules = response.data.modules;

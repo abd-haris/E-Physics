@@ -1,7 +1,7 @@
-import DetailMyClassPresenter from "./detail-class-presenter";
-import { DataLearning } from "../../data/get-data";
-import { parseActivePathname } from "../routes/url-parser";
-import { generateDetailMyClassTemplate } from "../../template";
+import DetailMyClassPresenter from './detail-class-presenter';
+import { DataLearning } from '../../data/get-data';
+import { parseActivePathname } from '../routes/url-parser';
+import { generateDetailMyClassTemplate } from '../../template';
 export default class DetailMyClass {
   #presenter;
 
@@ -21,32 +21,32 @@ export default class DetailMyClass {
 
     await this.#presenter.initialDetailMyModule();
 
-    const header = document.querySelector("header");
+    const header = document.querySelector('header');
     if (header) {
-      header.style.display = "block";
+      header.style.display = 'block';
     }
 
-    const footer = document.querySelector("footer");
+    const footer = document.querySelector('footer');
     if (footer) {
-      footer.style.display = "block";
+      footer.style.display = 'block';
     }
   }
 
   populateMyDetailModule(message, courses) {
-    document.getElementById("detail-class").innerHTML = generateDetailMyClassTemplate(courses);
+    document.getElementById('detail-class').innerHTML = generateDetailMyClassTemplate(courses);
 
-    const btnLearn = document.getElementById("btn-learn");
+    const btnLearn = document.getElementById('btn-learn');
     if (courses.progress === 0) {
-      return (btnLearn.textContent = "Mulai belajar");
+      return (btnLearn.textContent = 'Mulai belajar');
     } else if (courses.progress > 0 && courses.progress < 100) {
-      return (btnLearn.textContent = "Lanjut belajar");
+      return (btnLearn.textContent = 'Lanjut belajar');
     } else {
-      return (btnLearn.textContent = "Belajar lagi");
+      return (btnLearn.textContent = 'Belajar lagi');
     }
   }
 
   showError(message) {
-    document.getElementById("main-content").innerHTML = `
+    document.getElementById('main-content').innerHTML = `
       <p class="error">${message}</p>
     `;
   }

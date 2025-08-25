@@ -11,14 +11,14 @@ export default class HomePresenter {
     try {
       const response = await this.#model.getAllModules();
       if (!response) {
-        console.log("populateDashboard: ", response);
+        console.log('populateDashboard: ', response);
         this.#view.populateContinueLearningDashboardError();
         return;
       }
       this.#view.populateLearningDashboardList(response.data);
       this.#view.levelLearningDashboard(response.gamification);
     } catch (error) {
-      console.error("initialDashboard: ", error);
+      console.error('initialDashboard: ', error);
       this.#view.populateContinueLearningDashboardError();
       return;
     }

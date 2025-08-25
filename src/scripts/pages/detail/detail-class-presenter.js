@@ -13,12 +13,12 @@ export default class DetailMyClassPresenter {
     try {
       const response = await this.#model.getDetailMyCourse(this.#courseId);
       if (!response) {
-        this.#view.showError("Data kursus tidak ditemukan.");
+        this.#view.showError('Data kursus tidak ditemukan.');
         return;
       }
       this.#view.populateMyDetailModule(response.message, response.data);
     } catch (error) {
-      this.#view.showError("Terjadi kesalahan saat memuat data kursus: " + error.message);
+      this.#view.showError('Terjadi kesalahan saat memuat data kursus: ' + error.message);
     }
   }
 }

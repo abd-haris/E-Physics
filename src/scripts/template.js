@@ -2,12 +2,12 @@ function generateListAsideTemplate(data, activeData) {
   return data.modules
     .map(
       (module) => `
-    <li class="block p-2 rounded-md ${module.moduleId === activeData ? "bg-neutral text-neutral-content" : "text-neutral"}">
-      <a href="#/my-class/${data.courseId}/module/${module.moduleId}" class="flex justify-between items-center">${module.subTitle} ${module.completed ? "<i class='icon-[fluent--checkmark-circle-32-regular]'></i>" : ""}</a>
+    <li class="block p-2 rounded-md ${module.moduleId === activeData ? 'bg-neutral text-neutral-content' : 'text-neutral'}">
+      <a href="#/my-class/${data.courseId}/module/${module.moduleId}" class="flex justify-between items-center">${module.subTitle} ${module.completed ? "<i class='icon-[fluent--checkmark-circle-32-regular]'></i>" : ''}</a>
     </li>
-    `
+    `,
     )
-    .join("");
+    .join('');
 }
 
 export function generateNavigationDrawerTemplate(currentPage) {
@@ -23,9 +23,9 @@ export function generateNavigationDrawerTemplate(currentPage) {
         <div class="drawer-side">
             <label for="my-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
             <ul class="menu bg-base-200 text-base-content min-h-full w-80 flex flex-col gap-y-3 pt-3">
-                <li><a href="#/" class="${currentPage === "dashboard" ? "text-neutral bg-neutral-content" : ""}">Dashboard</a></li>
-                <li><a href="#/list-class" class="${currentPage === "/list-class" ? "text-neutral bg-neutral-content" : ""}">Daftar Kelas</a></li>
-                <li><a href="#/my-class/my" class="${currentPage === "/my-class/my" ? "text-neutral  bg-neutral-content" : ""}">Kelas Saya</a></li>
+                <li><a href="#/" class="${currentPage === 'dashboard' ? 'text-neutral bg-neutral-content' : ''}">Dashboard</a></li>
+                <li><a href="#/list-class" class="${currentPage === '/list-class' ? 'text-neutral bg-neutral-content' : ''}">Daftar Kelas</a></li>
+                <li><a href="#/my-class/my" class="${currentPage === '/my-class/my' ? 'text-neutral  bg-neutral-content' : ''}">Kelas Saya</a></li>
             </ul>
         </div>
     `;
@@ -34,20 +34,52 @@ export function generateNavigationDrawerTemplate(currentPage) {
 export function generateHeaderListTemplate(currentPage) {
   return `
         <ul class="menu menu-horizontal px-1 text-base flex gap-x-3">
-            <li><a href="#/" class="${currentPage === "dashboard" ? "bg-neutral-content" : ""}">Dashboard</a></li>
-            <li><a href="#/list-class" class="${currentPage === "/list-class" ? "bg-neutral-content" : ""}">Daftar Kelas</a></li>
-            <li><a href="#/my-class/my" class="${currentPage === "/my-class/my" ? "bg-neutral-content" : ""}">Kelas Saya</a></li>
+            <li><a href="#/" class="${currentPage === 'dashboard' ? 'bg-neutral-content' : ''}">Dashboard</a></li>
+            <li><a href="#/list-class" class="${currentPage === '/list-class' ? 'bg-neutral-content' : ''}">Daftar Kelas</a></li>
+            <li><a href="#/my-class/my" class="${currentPage === '/my-class/my' ? 'bg-neutral-content' : ''}">Kelas Saya</a></li>
         </ul>
     `;
 }
 
 export function generateHeaderPointTemplate() {
   return `
-        <span class="flex items-center gap-x-2 font-semibold">
-            <span class="icon-[fluent-color--star-48] text-xl"></span>
-            <p><span id="xp-point">50</span> XP</p>
-        </span>
+    <div class="flex gap-x-3">
+      <span class="flex items-center gap-x-2 font-semibold btn btn-neutral">
+        <a href="#/login">Masuk</a>
+      </span>
+      <span class="flex items-center gap-x-2 font-semibold btn btn-outline btn-neutral">
+        <a href="#/register">Daftar</a>
+      </span>
+    </div>
     `;
+}
+
+export function generateHeaderLogoutTemplate() {
+  return `
+  <div>
+    <div class="dropdown dropdown-end">
+      <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+        <div class="w-10 rounded-full">
+          <img
+            alt="Tailwind CSS Navbar component"
+            src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+        </div>
+      </div>
+      <ul
+        tabindex="0"
+        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+        <li>
+          <a class="justify-between">
+            Profile
+            <span class="badge">New</span>
+          </a>
+        </li>
+        <li><a>Settings</a></li>
+        <li><a id="logout-btn" href="#/login">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+  `;
 }
 
 export function generateClassListItemTemplate({ courseId, image, title, kelas }) {
@@ -116,9 +148,9 @@ export function generateAsideDetailModuleTemplate(modules) {
         <span class="ms-3">${module.subTitle || `Module ${index + 1}`}</span>
       </a>
     </li>
-  `
+  `,
     )
-    .join("");
+    .join('');
 
   return `
     <aside id="default-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
@@ -157,7 +189,7 @@ export function generateDetailMyClassTemplate(courses) {
 export function generateDetailModuleTemplate(course, activeModuleId) {
   const modules = generateListAsideTemplate(course, activeModuleId);
   const activeModule = course.modules.find((module) => module.moduleId === activeModuleId);
-  const description = activeModule ? activeModule.description : "Deskripsi tidak tersedia";
+  const description = activeModule ? activeModule.description : 'Deskripsi tidak tersedia';
   const progress = course.progress || 0;
 
   return `
@@ -285,7 +317,13 @@ export function generateCardLevelExpertDashboardTemplate(gamification) {
   `;
 }
 
-export function generateContinueLearningDashboardListTemplate({ courseId, image, title, kelas, progress }) {
+export function generateContinueLearningDashboardListTemplate({
+  courseId,
+  image,
+  title,
+  kelas,
+  progress,
+}) {
   return `
     <div class="bg-white shadow-sm rounded-xl box-border p-5">
       <figure class="flex gap-x-3 items-center p-3">
@@ -316,7 +354,13 @@ export function generateContinueLearningDashboardEmptyTemplate() {
   `;
 }
 
-export function generateFinishedLearningDashboardListTemplate({ courseId, image, title, kelas, progress }) {
+export function generateFinishedLearningDashboardListTemplate({
+  courseId,
+  image,
+  title,
+  kelas,
+  progress,
+}) {
   return `
     <div class="bg-white shadow-sm rounded-xl box-border p-5">
       <figure class="flex gap-x-3 items-center p-3">
@@ -346,3 +390,5 @@ export function generateFinishedLearningDashboardEmptyTemplate() {
     </div>
   `;
 }
+
+export function generateFormLoginTemplate() {}

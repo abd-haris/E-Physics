@@ -10,16 +10,22 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prettier": "prettier . --check",
+    "prettier:write": "prettier . --write"
   },
   "devDependencies": {
     "@iconify/json": "^2.2.341",
     "@iconify/tailwind4": "^1.0.6",
-    "vite": "^6.3.5"
+    "vite": "^6.3.5",
+    "vite-plugin-page-html": "^3.2.1"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.7",
     "daisyui": "^5.0.38",
+    "firebase": "^12.0.0",
+    "lit": "^3.3.1",
+    "prettier": "^3.6.2",
     "tailwindcss": "^4.1.7"
   }
 }

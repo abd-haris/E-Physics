@@ -8,7 +8,7 @@ export default class MyClassPresenter {
   async initialMyListModule() {
     const response = await this.#model.getMyCourses();
     if (!response) {
-      console.log("response tidak ditemukan!");
+      console.log('response tidak ditemukan!');
       return;
     }
     this.#view.populateMyListModules(response.message, response.data);

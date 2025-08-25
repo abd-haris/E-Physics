@@ -1,13 +1,13 @@
-import ListClassPresenter from "./list-class-presenter";
-import { DataLearning } from "../../data/get-data";
-import { generateClassListItemTemplate } from "../../template";
+import ListClassPresenter from './list-class-presenter';
+import { DataLearning } from '../../data/get-data';
+import { generateClassListItemTemplate } from '../../template';
 
 export default class ListClass {
   #presenter;
 
   async render() {
     return `
-    <div class="mt-20">
+    <div id="list-class-container" class="">
         <section>
             <div id="jumbotron" class="w-full h-60 bg-primary flex items-center justify-center p-4">
               <form id="search-course" class="w-full">
@@ -62,38 +62,39 @@ export default class ListClass {
       model: DataLearning,
     });
 
+    this.contentHeight();
     await this.#presenter.initialListModule();
-    const header = document.querySelector("header");
+    const header = document.querySelector('header');
     if (header) {
-      header.style.display = "block";
+      header.style.display = 'block';
     }
   }
 
   populateListModules(message, courses) {
     const html = courses.reduce((accumulator, course) => {
       return accumulator.concat(generateClassListItemTemplate({ ...course }));
-    }, "");
+    }, '');
 
-    document.getElementById("class-list__item").innerHTML = html;
+    document.getElementById('class-list__item').innerHTML = html;
 
-    const selectElement = document.getElementById("select");
-    const classListItem = document.getElementById("class-list__item");
-    selectElement.addEventListener("change", () => {
+    const selectElement = document.getElementById('select');
+    const classListItem = document.getElementById('class-list__item');
+    selectElement.addEventListener('change', () => {
       const selectedClass = selectElement.value;
       this.getCoursesByClass(selectedClass, courses, classListItem);
     });
 
     courses.map((course) => {
-      document.querySelector(`#btn-kelas-${course.courseId}`).addEventListener("click", () => {
-        console.log("courseId: ", course);
+      document.querySelector(`#btn-kelas-${course.courseId}`).addEventListener('click', () => {
+        console.log('courseId: ', course);
         this.#presenter.setMyCourse(course.courseId);
         this.#presenter.initialListModule();
       });
     });
 
-    document.getElementById("search-course").addEventListener("submit", (event) => {
-      let searchInput = document.getElementById("search-title").value.toLowerCase();
-      console.log("searchInput: ", searchInput);
+    document.getElementById('search-course').addEventListener('submit', (event) => {
+      let searchInput = document.getElementById('search-title').value.toLowerCase();
+      console.log('searchInput: ', searchInput);
       event.preventDefault();
       this.searchCourse(searchInput, courses, classListItem);
       event.target.reset();
@@ -101,27 +102,36 @@ export default class ListClass {
   }
 
   getCoursesByClass(selectedClass, courses, classListItem) {
-    let filterClass = selectedClass ? courses.filter((course) => course.kelas === selectedClass) : courses;
-    console.log("filterClass: ", filterClass);
+    let filterClass = selectedClass
+      ? courses.filter((course) => course.kelas === selectedClass)
+      : courses;
+    console.log('filterClass: ', filterClass);
     if (filterClass.length > 0) {
       const courseFilter = filterClass.reduce((accumulator, course) => {
         return accumulator.concat(generateClassListItemTemplate({ ...course }));
-      }, "");
+      }, '');
 
       classListItem.innerHTML = courseFilter;
     }
   }
 
   searchCourse(searchInput, courses, classListItem) {
-    console.log("filterCourse: ", typeof courses);
+    console.log('filterCourse: ', typeof courses);
     let courseTitle = courses.filter((course) => course.title.toLowerCase().includes(searchInput));
-    console.log("courseTitle: ", courseTitle);
+    console.log('courseTitle: ', courseTitle);
     if (courseTitle.length > 0) {
       const titleCourse = courseTitle.reduce((accumulator, course) => {
         return accumulator.concat(generateClassListItemTemplate({ ...course }));
-      }, "");
+      }, '');
 
       classListItem.innerHTML = titleCourse;
     }
+  }
+
+  contentHeight() {
+    const header = document.querySelector('header');
+    const footer = document.querySelector('footer');
+    const listContent = document.querySelector('#list-class-container');
+    listContent.style.minHeight = `calc(100vh - ${header.clientHeight + footer.clientHeight}px)`;
   }
 }

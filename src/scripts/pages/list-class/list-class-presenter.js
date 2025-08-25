@@ -10,7 +10,7 @@ export default class ListClassPresenter {
   async initialListModule() {
     const response = await this.#model.getAllModules();
     if (!response) {
-      console.log("response tidak ditemukan!");
+      console.log('response tidak ditemukan!');
       return;
     }
     this.#view.populateListModules(response.message, response.data);
@@ -18,7 +18,7 @@ export default class ListClassPresenter {
   async setMyCourse(courseId) {
     await this.#model.setToMyCourse(courseId);
     if (!courseId) {
-      console.log("courseId tidak ditemukan");
+      console.log('courseId tidak ditemukan');
     }
   }
 }

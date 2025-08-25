@@ -1,5 +1,5 @@
 function extractPathnameSegments(path) {
-  const splitUrl = path.split("/").filter((segment) => segment);
+  const splitUrl = path.split('/').filter((segment) => segment);
   const segments = {};
 
   if (splitUrl.length > 0) {
@@ -13,15 +13,15 @@ function extractPathnameSegments(path) {
     const thirdSegment = splitUrl[2];
     const fourthSegment = splitUrl[3];
 
-    if (segments.resource === "my-class" && secondSegment === "my") {
+    if (segments.resource === 'my-class' && secondSegment === 'my') {
       segments.isMyPage = true;
-    } else if (secondSegment === "course" && splitUrl.length > 2) {
+    } else if (secondSegment === 'course' && splitUrl.length > 2) {
       segments.courseSegment = secondSegment;
       segments.moduleId = splitUrl[2];
-    } else if (splitUrl.length > 2 && thirdSegment === "corridor") {
+    } else if (splitUrl.length > 2 && thirdSegment === 'corridor') {
       segments.id = secondSegment;
       segments.corridor = thirdSegment;
-    } else if (thirdSegment === "module" && splitUrl.length > 3) {
+    } else if (thirdSegment === 'module' && splitUrl.length > 3) {
       segments.id = secondSegment;
       segments.module = thirdSegment;
       segments.moduleId = splitUrl[3];
@@ -34,17 +34,21 @@ function extractPathnameSegments(path) {
 }
 
 function constructRouteFromSegments(pathSegments) {
-  let pathname = "";
+  let pathname = '';
 
   if (pathSegments.resource) {
     pathname = pathname.concat(`/${pathSegments.resource}`);
   }
 
-  if (pathSegments.resource === "my-class" && pathSegments.isMyPage) {
+  if (pathSegments.resource === 'my-class' && pathSegments.isMyPage) {
     return `${pathname}/my`;
   }
 
-  if (pathSegments.resource === "my-class" && pathSegments.courseSegment === "course" && pathSegments.moduleId) {
+  if (
+    pathSegments.resource === 'my-class' &&
+    pathSegments.courseSegment === 'course' &&
+    pathSegments.moduleId
+  ) {
     return `${pathname}/course/moduleId`;
   }
 
@@ -56,14 +60,14 @@ function constructRouteFromSegments(pathSegments) {
     return `${pathname}/:id/module/:moduleId`;
   }
   if (pathSegments.id) {
-    pathname = pathname.concat("/:id");
+    pathname = pathname.concat('/:id');
   }
 
-  return pathname || "/";
+  return pathname || '/';
 }
 
 export function getActivePathname() {
-  return location.hash.replace("#", "") || "/";
+  return location.hash.replace('#', '') || '/';
 }
 
 export function getActiveRoute() {

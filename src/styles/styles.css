@@ -1,6 +1,8 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 @plugin "daisyui" {
-  themes: silk --default, coffee;
+  themes:
+    silk --default,
+    coffee;
 }
 @plugin "@iconify/tailwind4";
 
@@ -13,11 +15,11 @@
 }
 
 ::view-transition-old(content) {
-  animation: fadeOutLeft 0.3s ease-in;
+  animation: fadeOutLeft 0.5s ease-in;
 }
 
 ::view-transition-new(content) {
-  animation: fadeInRight 0.3s ease-out;
+  animation: fadeInRight 0.5s ease-out;
 }
 
 ::view-transition-group(detail-image) {
